@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Barracks Manager Website</title>
+  <link rel="stylesheet" href="index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // JavaScript for the accordion
+    function toggleAccordion(panelId) {
+      var panel = document.getElementById(panelId);
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    }
+ 
+    // Add event listeners to the accordion buttons
+    document.addEventListener("DOMContentLoaded", function() {
+      var accordions = document.getElementsByClassName("accordion");
+      for (var i = 0; i < accordions.length; i++) {
+        accordions[i].addEventListener("click", function() {
+          toggleAccordion(this.nextElementSibling.id);
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header">
+      <div class="logo">
+        <img src="photos/spartan_logo_2abct.png" alt="My Website Logo">
+        <h1>Barracks Manager Website</h1>
+      </div>
+    </div>
+  </header>
+ 
+  <!-- Accordion section for Mold Levels -->
+  <button class="accordion">Mold Levels</button>
+  <div class="panel" id="panel1">
+    <div class="picture-section">
+      <div class="picture">
+        <img src="photos/level_1_mold.jpg" alt="Image 1">
+        <p class="picture-title">Mold Level 1</p>
+        <p class="picture-description">Level 1 remediation, a damp cloth and detergent are sufficient, or natural mold cleaners like white vinegar can work</p>
+      </div>
+      <div class="picture">
+        <img src="photos/level_2_mold.jpg" alt="Image 2">
+        <p class="picture-title">Mold Level 2</p>
+        <p class="picture-description"> Level 2 will require using a HEPA vacuum and cleaning all surfaces with a damp cloth.</p>
+      </div>
+      <div class="picture">
+        <img src="photos/level_3_mold.jpg" alt="Image 3">
+        <p class="picture-title">Mold Level 3</p>
+        <p class="picture-description">For this level, you need to contact the mold Team, you are not allowed to clean it.</p>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Accordion section for Points of Contact -->
+  <button class="accordion">Points of Contact</button>
+  <div class="panel" id="panel2">
+    <div class="picture-section">
+      <div class="picture">
+        <img src="photos/Barracks_2_ABCT.jpg" alt="Image 1">
+        <p class="picture-title">Barracks Management Office</p>
+        <p class="picture-description">2nd ABCT building #8450 </p><p class="picture-description">Phone: (912)435-7802</p>
+      </div>
+      <div class="picture">
+        <img src="photos/spartan_logo_2abct.png" alt="Image 2">
+        <p class="picture-title">Brigade Mold Team NCOIC</p>
+        <p class="picture-description">NCOIC: SGT DOE </p><p class="picture-description">Phone: (912)123-4567</p>
+      </div>
+      <div class="picture">
+        <img src="photos/Rocky_the_BulldogStripes.jpg" alt="Image 3">
+        <p class="picture-title">3ID Mold Team</p>
+        <p class="picture-description">Contact details and information.</p>
+      </div>
+      <div class="picture">
+        <img src="photos/dpw_logo.png" alt="Image 2">
+        <p class="picture-title">DPW</p>
+        <p class="picture-description">Directore of Public Works(DPW)</p><p class="picture-description">Phone: (912)767-8356</p>
+      </div>
+    </div>
+  </div>
+
+    <!-- Accordion section for Setinup Discord -->
+    <button class="accordion">Setup Discord</button>
+    <div class="panel" id="panel3">
+      <div class="picture-section">
+        <div class="picture">
+          <img src="photos/click_register.png" alt="Image 1">
+          <p class="picture-title">Click Register</p>
+          <p class="picture-description">Some text</p>
+        </div>
+        <div class="picture">
+          <img src="photos/type_emial_or_phone.png" alt="Image 2">
+          <p class="picture-title">Type your Phone or Email, do not use dod.</p>
+          <p class="picture-description">some text</p>
+        </div>
+        <div class="picture">
+          <img src="photos/type_your_rank_last_name.png" alt="Image 3">
+          <p class="picture-title">Type your Rank and Last Name.</p>
+          <p class="picture-description">some text if needed</p>
+        </div>
+        <div class="picture">
+          <img src="photos/username_password.png" alt="Image 3">
+          <p class="picture-title">Type an Username and Password.</p>
+          <p class="picture-description">some text if needed</p>
+        </div>
+        <div class="picture">
+          <img src="photos/dob.png" alt="Image 3">
+          <p class="picture-title">Put your date of birth.</p>
+          <p class="picture-description">some text if needed</p>
+        </div>
+        <div class="picture">
+          <img src="photos/profile_pic.png" alt="Image 3">
+          <p class="picture-title">Choose a profile picture or click skip.</p>
+          <p class="picture-description">some text if needed</p>
+        </div>
+        <div class="picture">
+          <img src="photos/click_next.png" alt="Image 3">
+          <p class="picture-title">Click Next</p>
+          <p class="picture-description">some text if needed</p>
+        </div>
+        <div class="picture">
+          <img src="photos/click_on_join_server.png" alt="Image 3">
+          <p class="picture-title">Click on join a friends server</p>
+          <p class="picture-description">some text if needed</p>
+        </div>
+        <div class="picture">
+          <img src="photos/invite_link.png" alt="Image 3">
+          <p class="picture-title">Type in the invite link provided</p>
+          <p class="picture-description">some text if needed</p>
+        </div>
+        <div class="picture">
+          <img src="photos/accept_invite.png" alt="Image 3">
+          <p class="picture-title">Accept Invite</p>
+          <p class="picture-description">some text if needed</p>
+        </div>
+      </div>
+    </div>
+
+  <!--Testing-->
+
+  <!--Testing-->
+  
+<!-- Footer-->
+  <div class="footer">
+    <p>&copy; 2023 My Website. All rights reserved.</p>
+  </div>
+</body>
+</html>
