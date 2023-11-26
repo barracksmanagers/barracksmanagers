@@ -36,7 +36,6 @@
       </div>
     </div>
   </header>
- 
   <!-- Accordion section for Mold Levels -->
   <button class="accordion">Mold Levels</button>
   <div class="panel" id="panel1">
@@ -44,21 +43,64 @@
       <div class="picture">
         <img src="photos/level_1_mold.jpg" alt="Image 1">
         <p class="picture-title">Mold Level 1</p>
-        <p class="picture-description">A damp cloth and detergent are sufficient, or natural mold cleaners like white vinegar can work.</p>
-      </div>
+        </div>
       <div class="picture">
         <img src="photos/level_2_mold.jpg" alt="Image 2">
         <p class="picture-title">Mold Level 2</p>
-        <p class="picture-description">Will require using a HEPA vacuum and cleaning all surfaces with a damp cloth.</p>
       </div>
       <div class="picture">
         <img src="photos/level_3_mold.jpg" alt="Image 3">
         <p class="picture-title">Mold Level 3</p>
-        <p class="picture-description">Contact the mold Team. You are not allowed to clean it since you would need to be level 2 Certified, since it would be considered harmful to the person cleaning it if they don't have the proper chemicals and PPE.</p>
+        <p class="picture-description">Please Contact the mold Team Immediately</p>
       </div>
     </div>
   </div>
- 
+<!--Accordion section for Mold Prevention-->
+  <div class="accordion">
+    <div class="accordion-header">Mold Prevention Guide</div>
+    <div class="accordion-content">
+      <h3>Introduction</h3>
+      <p>Welcome to our comprehensive guide on mold prevention. In this guide, you will find essential tips and steps to effectively clean mold and prevent it from recurring in your environment.</p>
+   
+      <h3>Step 1: Identifying Mold</h3>
+      <p>Start by identifying the presence of mold in your environment. Look out for visible signs, such as discoloration, musty odors, and water damage. It's crucial to accurately identify the type and extent of mold before proceeding with the cleaning process.</p>
+   
+      <h3>Step 2: Mold Cleaning Process</h3>
+      <p>When cleaning mold, it's important to prioritize safety. Ensure you have proper protective gear, such as gloves, goggles, and a mask. The cleaning process typically involves the following steps:</p>
+      <ul>
+        <li>Containing the affected area</li>
+        <li>Removing mold-infested materials</li>
+        <li>Using appropriate cleaning solutions</li>
+        <li>Drying the area thoroughly</li>
+      </ul>
+   
+      <h3>Step 3: Regular Cleaning and Maintenance</h3>
+      <p>Regular cleaning and maintenance are crucial to prevent mold growth. Some key practices include:</p>
+      <ul>
+        <li>Regularly cleaning and dusting surfaces</li>
+        <li>Keeping humidity levels in check</li>
+        <li>Inspecting and repairing any potential sources of moisture</li>
+      </ul>
+   
+      <h3>Conclusion</h3>
+      <p>By following the steps outlined in this guide, you can effectively clean mold and prevent it from recurring in your environment. Remember to always prioritize your safety and take necessary precautions when dealing with mold. If you have any further questions or need additional assistance, feel free to reach out to our mold prevention experts.</p>
+    </div>
+  </div>
+  <script>
+    var accordionHeaders = document.getElementsByClassName("accordion-header");
+   
+    for (var i = 0; i < accordionHeaders.length; i++) {
+      accordionHeaders[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var accordionContent = this.nextElementSibling;
+        if (accordionContent.style.display === "block") {
+          accordionContent.style.display = "none";
+        } else {
+          accordionContent.style.display = "block";
+        }
+      });
+    }
+  </script>
   <!-- Accordion section for Points of Contact -->
   <button class="accordion">Points of Contact</button>
   <div class="panel" id="panel2">
@@ -85,7 +127,6 @@
       </div>
     </div>
   </div>
-
     <!-- Accordion section for Setinup Discord -->
     <button class="accordion">Setup Discord</button>
     <div class="panel" id="panel3">
@@ -132,7 +173,6 @@
         </div>
       </div>
     </div>
-
     <button class="accordion">Download Links</button>
     <div class="panel" id="panel4">
       <div class="picture-section">
@@ -146,7 +186,7 @@
     </div>
 
   <!--Testing-->
-
+  
   <!--Testing-->
   
 <!-- Footer-->

@@ -163,7 +163,20 @@ a {
 text-decoration: none;
 color: #333;
 }
+
+
+
+
+
+
+
+
+
+
 /*TEST*/
 
+.accordion-content {
+  display: none;
+}
 
 /*TEST*/
