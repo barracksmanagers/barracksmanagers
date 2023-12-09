@@ -173,17 +173,64 @@
         </div>
       </div>
     </div>
-    <button class="accordion">Download Links</button>
+
+    <button class="accordion" id="accordion1">Download and Server Links</button>
     <div class="panel" id="panel4">
       <div class="picture-section">
         <div class="picture">
           <img src="photos/discord_logo.png" alt="Image 1">
           <p class="picture-title"><a href="https://apps.apple.com/us/app/discord-chat-talk-hangout/id985746746">iPhones</a></p>
           <p class="picture-title"><a href="https://play.google.com/store/apps/details?id=com.discord&hl=en_US&gl=US&pli=1">Android</a></p>
-          
+          <p class="picture-title"><a href="https://discord.gg/BUQ7XfdtxK">Server Link</a></p>
         </div>
       </div>
     </div>
+     
+    <script>
+// Get the accordion button element
+var accordionButton = document.querySelector("#accordion1");
+ 
+// Get the panel element
+var panel = document.getElementById("panel4");
+ 
+var isOpen = false; // Variable to track if the panel is open
+var attempts = 0; // Variable to track the number of incorrect password attempts
+ 
+// Add an event listener to the button
+accordionButton.addEventListener("click", function() {
+  // Check if the panel is already open
+  if (isOpen) {
+    // Close the panel
+    panel.classList.remove("active");
+    isOpen = false;
+  } else {
+    // Prompt the user to enter the password
+    var password = prompt("Please enter the pin:");
+ 
+    // Check if the password is correct
+    if (password === "B42-80!1" || password === "Lp;0*bn" || password === "C.72g&ab") {
+      // Open the panel if the password is correct
+      panel.classList.add("active");
+      isOpen = true;
+    } else if (password === null) {
+      // Refresh the page if the user clicked on "Cancel" in the password prompt
+      location.reload();
+    } else {
+      // Increment the number of incorrect password attempts
+      attempts++;
+ 
+      // Check if the maximum number of attempts has been reached
+      if (attempts === 1) {
+        // Refresh the page if the maximum number of attempts has been reached
+        location.reload();
+      } else {
+        // Display an error message if the password is incorrect
+        alert("Incorrect pin.");
+      }
+    }
+  }
+});
+    </script>
 <!-- Footer-->
   <div class="footer">
     <p>&copy; 2023 Barracks Manager by J. All rights reserved.</p>
