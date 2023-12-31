@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html oncontextmenu="return false" onkeydown="return false" onmousedown="return false">
+<html>
 <head>
   <title>Barracks Manager Website</title>
   <link rel="stylesheet" href="index.css">
   <link rel="icon" type="image/x-icon" href="photos/housing_icon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--SCRIPTS-->
   <script>
     // JavaScript for the accordion
     function toggleAccordion(panelId) {
@@ -25,9 +27,56 @@
         });
       }
     });
+
+
+    /*Form Script*/
+    function submitForm() {
+    var lastName = document.getElementById("lastName").value;
+    var rank = document.getElementById("rank").value;
+    var buildingNumber = document.getElementById("buildingNumber").value;
+    var roomNumber = document.getElementById("roomNumber").value;
+    var moldLevel = document.getElementById("moldLevel").value;
+    var type = document.querySelector('input[name="type"]:checked').value;
+    var comment = document.getElementById("comment").value;
+
+    // Create the webhook payload
+    var payload = {
+      
+      embeds: [
+        {
+          
+          fields: [
+            { name: "Last Name", value: lastName },
+            { name: "Rank", value: rank },
+            { name: "Building Number", value: buildingNumber },
+            { name: "Room Number", value: roomNumber },
+            { name: "Mold Level", value: moldLevel },
+            { name: "Type", value: type },
+            { name: "Comment", value: comment }
+          ]
+        }
+      ]
+    };
+
+    // Send the payload to the Discord webhook
+    var webhookUrl = "https://discord.com/api/webhooks/1190887542480982026/VCleGwWjiNfY90OZYHkASqCiVDbsMG1Z_J5XvUVeBB_2dvB9XLHnLJWCCFrvpebMYtaG";
+    var request = new XMLHttpRequest();
+    request.open("POST", webhookUrl);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.send(JSON.stringify(payload));
+
+    // Optionally, show a success message or redirect to a thank you page
+    alert("Form submitted successfully!");
+    location.reload();
+  }
+
+ 
   </script>
+   <!--SCRIPTS-->
+
+
 </head>
-<body oncontextmenu="return false" onkeydown="return false" onmousedown="return false">
+<body>
   <header>
     <div class="header">
       <div class="logo">
@@ -174,66 +223,94 @@
       </div>
     </div>
 
-    <button class="accordion" id="accordion1">Download and Server Links</button>
+    <!-- Form -->
+    <button class="accordion">Submit Report</button>
     <div class="panel" id="panel4">
-      <div class="picture-section">
-        <div class="picture">
-          <img src="photos/discord_logo.png" alt="Image 1">
-          <p class="picture-title"><a href="https://apps.apple.com/us/app/discord-chat-talk-hangout/id985746746">iPhones</a></p>
-          <p class="picture-title"><a href="https://play.google.com/store/apps/details?id=com.discord&hl=en_US&gl=US&pli=1">Android</a></p>
-          <p class="picture-title"><a href="https://discord.gg/BUQ7XfdtxK">Server Link</a></p>
-        </div>
-      </div>
+      <form onsubmit="event.preventDefault(); submitForm();">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName">
+   
+        <label for="rank">Rank:</label>
+        <select id="rank" name="rank">
+          <option value="Choose Rank">Choose Rank</option>
+          <option value="Private">Private</option>
+          <option value="Private First Class">Private First Class</option>
+          <option value="Specialist">Specialist</option>
+          <option value="Corporal">Corporal</option>
+          <option value="Sergeant">Sergeant</option>
+          <option value="Staff Sergeant">Staff Sergeant</option>
+          <option value="Sergeant First Class">Sergeant First Class</option>
+          <option value="Master Sergeant">Master Sergeant</option>
+          <option value="First Sergeant">First Sergeant</option>
+          <option value="Sergeant Major">Sergeant Major</option>
+        </select>
+   
+        <label for="buildingNumber">Building Number:</label>
+        <select id="buildingNumber" name="buildingNumber">
+          <option value="Bulding Number">Bulding Number</option>
+          <option value="8450">8450</option>
+          <option value="8452">8452</option>
+          <option value="8454">8454</option>
+          <option value="8456">8456</option>
+          <option value="8458">8458</option>
+          <option value="8460">8460</option>
+          <option value="8462">8462</option>
+          <option value="8464">8464</option>
+          <option value="8466">8466</option>
+          <option value="8468">8468</option>
+          <option value="8470">8470</option>
+          <option value="8472">8472</option>
+          <option value="8474">8474</option>
+          <option value="8478">8478</option>
+          <option value="8480">8480</option>
+          <option value="8482">8482</option>
+          <option value="8484">8484</option>
+          <option value="8486">8486</option>
+          <option value="8488">8488</option>
+        </select>
+   
+        <label for="roomNumber">Room Number:</label>
+        <select id="roomNumber" name="roomNumber">
+          <option value="Room Number">Room Number</option>
+          <option value="101">101</option>
+          <option value="102">102</option>
+          <option value="103">103</option>
+          <option value="104">104</option>
+          <option value="105">105</option>
+          <option value="106">106</option>
+          <option value="107">107</option>
+          <option value="108">108</option>
+          <option value="109">109</option>
+          <option value="110">110</option>
+          <option value="111">111</option>
+          <option value="112">112</option>
+        </select>
+   
+        <label for="moldLevel">Mold Level:</label>
+        <select id="moldLevel" name="moldLevel">
+          <option value="none">none</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+   
+        <label for="type">Section:</label>
+        <input type="radio" id="typeA" name="type" value="A">
+        <label for="typeA">A</label>
+        <input type="radio" id="typeB" name="type" value="B">
+        <label for="typeB">B</label>
+   
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+   
+        <input type="submit" value="Submit">
+      </form>
     </div>
-     
-    <script>
-// Get the accordion button element
-var accordionButton = document.querySelector("#accordion1");
- 
-// Get the panel element
-var panel = document.getElementById("panel4");
- 
-var isOpen = false; // Variable to track if the panel is open
-var attempts = 0; // Variable to track the number of incorrect password attempts
- 
-// Add an event listener to the button
-accordionButton.addEventListener("click", function() {
-  // Check if the panel is already open
-  if (isOpen) {
-    // Close the panel
-    panel.classList.remove("active");
-    isOpen = false;
-  } else {
-    // Prompt the user to enter the password
-    var password = prompt("Please enter the pin:");
- 
-    // Check if the password is correct
-    if (password === "B42-80!1" || password === "Lp;0*bn" || password === "C.72g&ab") {
-      // Open the panel if the password is correct
-      panel.classList.add("active");
-      isOpen = true;
-    } else if (password === null) {
-      // Refresh the page if the user clicked on "Cancel" in the password prompt
-      location.reload();
-    } else {
-      // Increment the number of incorrect password attempts
-      attempts++;
- 
-      // Check if the maximum number of attempts has been reached
-      if (attempts === 1) {
-        // Refresh the page if the maximum number of attempts has been reached
-        location.reload();
-      } else {
-        // Display an error message if the password is incorrect
-        alert("Incorrect pin.");
-      }
-    }
-  }
-});
-    </script>
+
+
 <!-- Footer-->
   <div class="footer">
-    <p>&copy; 2023 Barracks Manager by J. All rights reserved.</p>
+    <p>&copy; 2024 Barracks Manager by SGT Cruz. All rights reserved.</p>
   </div>
 </body>
 </html>

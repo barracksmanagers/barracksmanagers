@@ -171,7 +171,38 @@ color: #333;
   display: none;
 }
 
+/*Form*/
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
 
-/*TEST*/
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
 
-/*TEST*/
+input[type="text"],
+select,
+textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
