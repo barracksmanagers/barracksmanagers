@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Barracks Manager Website</title>
+      <title>Barracks Manager Website</title>
     <link rel="icon" type="image/x-icon" href="photos/housing_icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="form.css">
 </head>
 <body>
+    <button id="myButton" class="my-button" style="position: absolute; top: 10px; left: 10px;" onclick="location.href='index.html'">BACK</button>
+   
     <h1>Report</h1>
     <form id="infoForm">
         <label for="name">Last Name:</label>
@@ -172,7 +174,7 @@
                     "8486-8488": "https://discord.com/api/webhooks/1191673762249187378/Kb6hD4ltScqno72N4vt5SBLJMr_EcjOo_FyDjL2di-4i_pUNNMAC2ueMRF6m3D_qEonD"
                 };
  
-                // Replace the webhook URLs with your actual Discord webhook URLs
+              
                 return webhookUrls[webhook];
             }
         });

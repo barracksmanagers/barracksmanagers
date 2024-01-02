@@ -48,3 +48,18 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #45a049;
 }
+
+
+.my-button {
+    background-color: #4c87af; /* Green background color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* No border */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.my-button:hover {
+    background-color: #45a049; /* Darker green background color on hover */
+}
