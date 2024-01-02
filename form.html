@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="photos/housing_icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <h1>Report</h1>
+    <form id="infoForm">
+        <label for="name">Last Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+ 
+        <label for="rank">Rank</label>
+        <select id="rank" name="rank" required>
+            <option value="Private">Private</option>
+            <option value="Private First Class">Private First Class</option>
+            <option value="Specialist">Specialist</option>
+            <option value="Corporal">Corporal</option>
+            <option value="Sergeant">Sergeant</option>
+            <option value="Staff Sergeant">Staff Sergeant</option>
+            <option value="Sergeant First Class">Sergeant First Class</option>
+            <option value="Master Sergeant">Master Sergeant</option>
+            <option value="First Sergeant">First Sergeant</option>
+            <option value="Sergeant Major">Sergeant Major</option>
+        </select><br><br>
+ 
+ 
+        <label for="webhook">Choose Bulding Cluster</label>
+        <select id="webhook" name="webhook" required>
+            <option value="8450-8452">8450-8452</option>
+            <option value="8454-8456">8454-8456</option>
+            <option value="8458-8460">8458-8460</option>
+            <option value="8462-8464">8462-8464</option>
+            <option value="8466-8468">8466-8468</option>
+            <option value="8470-8472">8470-8472</option>
+            <option value="8474-8476">8474-8476</option>
+            <option value="8478-8480">8478-8480</option>
+            <option value="8482-8484">8482-8484</option>
+            <option value="8486-8488">8486-8488</option>
+        </select><br><br>
+
+        <label for="buildingNumber">Building Number:</label>
+        <select id="buildingNumber" name="buildingNumber" required>
+          <option value="8450">8450</option>
+          <option value="8452">8452</option>
+          <option value="8454">8454</option>
+          <option value="8456">8456</option>
+          <option value="8458">8458</option>
+          <option value="8460">8460</option>
+          <option value="8462">8462</option>
+          <option value="8464">8464</option>
+          <option value="8466">8466</option>
+          <option value="8468">8468</option>
+          <option value="8470">8470</option>
+          <option value="8472">8472</option>
+          <option value="8474">8474</option>
+          <option value="8478">8478</option>
+          <option value="8480">8480</option>
+          <option value="8482">8482</option>
+          <option value="8484">8484</option>
+          <option value="8486">8486</option>
+          <option value="8488">8488</option>
+        </select>
+
+        <label for="roomNumber">Room Number:</label>
+        <select id="roomNumber" name="roomNumber" required>
+          <option value="101">101</option>
+          <option value="102">102</option>
+          <option value="103">103</option>
+          <option value="104">104</option>
+          <option value="105">105</option>
+          <option value="106">106</option>
+          <option value="107">107</option>
+          <option value="108">108</option>
+          <option value="109">109</option>
+          <option value="110">110</option>
+          <option value="111">111</option>
+          <option value="112">112</option>
+          <option value="201">201</option>
+          <option value="202">202</option>
+          <option value="203">203</option>
+          <option value="204">204</option>
+          <option value="205">205</option>
+          <option value="206">206</option>
+          <option value="207">207</option>
+          <option value="208">208</option>
+          <option value="209">209</option>
+          <option value="210">210</option>
+          <option value="211">211</option>
+          <option value="112">212</option>
+          <option value="301">301</option>
+          <option value="302">302</option>
+          <option value="303">303</option>
+          <option value="304">304</option>
+          <option value="305">305</option>
+          <option value="306">306</option>
+          <option value="307">307</option>
+          <option value="308">308</option>
+          <option value="309">309</option>
+          <option value="310">310</option>
+          <option value="311">311</option>
+          <option value="312">312</option>
+        </select>
+
+        <label for="section">Section A or B:</label>
+        <input type="text" id="section" name="section" required><br><br>
+
+        <label for="moldLevel">Mold Level:</label>
+        <select id="moldLevel" name="moldLevel">
+          <option value="none">none</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+ 
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+ 
+    <script>
+        $(document).ready(function() {
+            $("#infoForm").submit(function(event) {
+                event.preventDefault();
+ 
+                const name = $("#name").val();
+                const rank = $("#rank").val();
+                const buildingNumber = $("#buildingNumber").val();
+                const roomNumber = $("#roomNumber").val();
+                const section = $("#section").val();
+                const moldLvl = $("#moldLevel").val();
+                const message = $("#message").val();
+                const webhook = $("#webhook").val();
+ 
+                const webhookUrl = getWebhookUrl(webhook);
+ 
+                const data = {
+                    "content":`Name: ${name}\n Rank: ${rank}\n Building Number: ${buildingNumber}\n Room Number: ${roomNumber}\n Section: ${section}\n Mold Level: ${moldLvl}\n Comment: ${message}`
+                };
+ 
+                $.ajax({
+                    type: "POST",
+                    url: webhookUrl,
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    success: function() {
+                        alert("Information submitted successfully!");
+                        // Clear the form after submission
+                        $("#infoForm")[0].reset();
+                    },
+                    error: function() {
+                        alert("Failed to submit information. Please try again later.");
+                    }
+                });
+            });
+ 
+            function getWebhookUrl(webhook) {
+                const webhookUrls = {
+                    "8450-8452": "https://discord.com/api/webhooks/1191656670972088382/vRJTNi-8EXrYzP_3wZG6_7hM0p1-ZRiV9lnDAu0BfQJOBoVQtD0aOod7SCcPhtAHxNXc",
+                    "8454-8456": "https://discord.com/api/webhooks/1191656674033942629/rztAJ-m68Vm_WsC3AYZyqMOH6QuK04RwPoEHDcm67nJ9jfZMoRFPsfxI-4DtdAyyiH-k",
+                    "8458-8460": "https://discord.com/api/webhooks/1191656676290465854/aYBNQdZEeBuoIGE6PoghpGJjGoHUyeGox1ENLfHlLmiN9FgZBOBuDLoxx-crYSkZXqOl",
+                    "8462-8464": "https://discord.com/api/webhooks/1191656678773502074/fTuWW-WKeE55igawmJKOPnU3bBII1iTq8DN17B5y3Mpzf1tpXemtZSTPKfKbOfZH649m",
+                    "8466-8468": "https://discord.com/api/webhooks/1191656693038321664/QErI_DTEuLsgXVofe-6c3XYpTbRA0S8KHesIiOkvNqVoTWmqwL3wmUDT0eX8C1JtmNIO",
+                    "8470-8472": "https://discord.com/api/webhooks/1191673266759282771/Px7jXGqqnkHUs9urQWf_Nhkr4hjkBRdix5arkN70Uts-UYDIfsawlFPcEygfrW9riI1c",
+                    "8474-8476": "https://discord.com/api/webhooks/1191673274439045150/H3TfERxO4_B0kXoMkyDkCeDTBAooHvzNs7QY7mAJ4fPGd2YsRR_Zt3LTxjMc1MaPT9ZD",
+                    "8478-8480": "https://discord.com/api/webhooks/1191673280420139160/nZIW1-3T3UrWt7VvM4BTceTAvttXA3fanlSs63IFJHziG5oH5XTUv2HNABsxU9Pimvqw",
+                    "8482-8484": "https://discord.com/api/webhooks/1191673285369417789/R_qFi1LY0190RFV9QjwjoIePtY2GM5Mu-Z1DsvMPJyb6vzxEh2il7JhH1MvhPVCUR_m5",
+                    "8486-8488": "https://discord.com/api/webhooks/1191673762249187378/Kb6hD4ltScqno72N4vt5SBLJMr_EcjOo_FyDjL2di-4i_pUNNMAC2ueMRF6m3D_qEonD"
+                };
+ 
+                // Replace the webhook URLs with your actual Discord webhook URLs
+                return webhookUrls[webhook];
+            }
+        });
+    </script>
+</body>
+</html>
